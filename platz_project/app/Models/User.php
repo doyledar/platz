@@ -40,4 +40,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * GETTER des ressources du user.
+     */
+    public function ressources() {
+        return $this->hasMany('App\Models\Ressource');
+    }
+
+    /**
+     * GETTER des commentaires du user.
+     */
+    public function commentaires() {
+        return $this->hasMany('App\Models\Commentaire');
+    }
 }
