@@ -1,6 +1,7 @@
 let state = {
   ressources: [],
-  categories: []
+  categories: [],
+  users: []
 }
 
 export default state;

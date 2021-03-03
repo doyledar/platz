@@ -8,6 +8,11 @@ let actions = {
     // Transaction AJAX
     axios.get('api/categories')
           .then(responsePHP => commit('SET_CATEGORIES', responsePHP.data))
+  },
+  setUsers({commit}) {
+    // Transaction AJAX
+    axios.get('api/users')
+          .then(responsePHP => commit('SET_USERS', responsePHP.data))
   }
 }
 

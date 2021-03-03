@@ -17,6 +17,18 @@ let getters = {
     return function(data) {
       return state.categories.find(categorie => categorie.id === data.categorie_id)
     }
+  },
+  // Retourne la ressource en fonction de son id
+  getRessourceById(state) {
+    return function(id) {
+      return state.ressources.find(ressource => ressource.id == id);
+    }
+  },
+  // Retourne le user en fonction de l'élément user_id de la ressource
+  getUserByRessourceId(state) {
+    return function(data) {
+      return state.users.find(user => user.id === data.user_id)
+    }
   }
 }
 

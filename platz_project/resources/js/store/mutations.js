@@ -4,6 +4,9 @@ let mutations = {
   },
   SET_CATEGORIES(state, data) {
     state.categories = data;
+  },
+  SET_USERS(state, data) {
+    state.users = data;
   }
 }
 
