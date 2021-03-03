@@ -1,27 +1,37 @@
 <template>
+  <div>
+    <div class="container object">
+      <div id="main-container-image">
+        <section class="work" v-for="ressource in ressources" :key="ressource.id">
 
-  <div class="container object">
-    <div id="main-container-image">
-      <section class="work" v-for="ressource in ressources" :key="ressource.id">
+          <figure class="white">
+            <router-link :to="{name: 'show', params: { id: ressource.id }}">
+              <img :src="`assets/img/${ressource.image}`" :alt="ressource.nom" />
+              <dl>
+                <dt>{{ ressource.nom }}</dt>
+                <dd>{{ ressource.description }}</dd>
+              </dl>
+            </router-link>
+            <div id="wrapper-part-info">
+              <div class="part-info-image"><img :src="`assets/img/${categories(ressource).icone}`" :alt="categories(ressource).nom" width="28" height="28"/></div>
+              <div id="part-info">{{ categories(ressource).nom }}</div>
+            </div>
+          </figure>
 
-        <figure class="white">
-          <a href="details.html">
-            <img :src="`assets/img/${ressource.image}`" :alt="ressource.nom" />
-            <dl>
-              <dt>{{ ressource.nom }}</dt>
-              <dd>{{ ressource.description }}</dd>
-            </dl>
-          </a>
-          <div id="wrapper-part-info">
-            <div class="part-info-image"><img :src="`assets/img/${categories(ressource).icone}`" :alt="categories(ressource).nom" width="28" height="28"/></div>
-            <div id="part-info">{{ categories(ressource).nom }}</div>
-          </div>
-        </figure>
-
-      </section>
+        </section>
+      </div>
+    </div>
+    <div id="wrapper-oldnew">
+      <div class="oldnew">
+        <div class="wrapper-oldnew-prev">
+          <div id="oldnew-prev"></div>
+        </div>
+        <div class="wrapper-oldnew-next">
+          <div id="oldnew-next"></div>
+        </div>
+      </div>
     </div>
   </div>
-
 
 </template>
 
@@ -46,10 +56,6 @@
           return this.$store.getters.getCategoriesByRessourceId(ressource)
         }
       }
-    },
-    created() {
-      this.$store.dispatch('setRessources')
-      this.$store.dispatch('setCategories')
     }
   }
 </script>

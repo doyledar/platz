@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Categories;
 use App\Http\Controllers\Ressources;
+use App\Http\Controllers\Users;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,7 @@ Route::resource('categories', Categories::class)->except(['show', 'create', 'edi
 // API des Ressources
 // CTRL : Ressources
 Route::resource('ressources', Ressources::class)->except(['show', 'create', 'edit']);
+
+// API des Users
+// CTRL : Users
+Route::resource('users', Users::class)->except(['show', 'create', 'edit']);
