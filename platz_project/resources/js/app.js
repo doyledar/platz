@@ -32,5 +32,10 @@ import store from './store/store.js'
 
 const app = new Vue({
     el: '#app',
-    router, store
+    router, store,
+    created() {
+      this.$store.dispatch('setRessources')
+      this.$store.dispatch('setCategories')
+      this.$store.dispatch('setUsers')
+    }
 });
