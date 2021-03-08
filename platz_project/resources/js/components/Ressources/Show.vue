@@ -7,7 +7,7 @@
             <div class="title-item">
               <div class="title-icon"></div>
                 <div  class="title-text">{{ ressource.nom }}</div>
-                <div class="title-text-2">{{ ressource.created_at }} by {{ user(ressource).pseudo }}</div>
+                <div class="title-text-2">{{ dateFormat(ressource.created_at) }} by {{ user(ressource).pseudo }}</div>
             </div>
 
 
@@ -88,10 +88,19 @@
 </template>
 
 <script>
+  import moment from 'moment'
+
   export default {
     data() {
       return {
 
+      }
+    },
+    methods: {
+      dateFormat(value) {
+        if(value) {
+          return moment(String(value)).format('MMM DD, YYYY')
+        }
       }
     },
     computed: {
